@@ -39,7 +39,7 @@ int main(int argc, char* argv[])
   if (argc < 2) { fprintf(stderr, "Usage: %s <spidev>", argv[0]); return 1; }
 
   shared_ptr<SX1276Platform> platform = SX1276Platform::GetInstance(argv[1]);
-  if (!platform) { PR_ERROR("Unable to create platform instance\n"); return 1; }
+  if (!platform) { PR_ERROR("Unable to create platform instance. Note, use /dev/tty... for BusPirate, otherwise, /dev/spidevX.Y\n"); return 1; }
 
   shared_ptr<SPI> spi = platform->GetSPI();
   if (!spi) { PR_ERROR("Unable to get SPI instance\n"); return 1; }
